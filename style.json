@@ -1,0 +1,28 @@
+{
+	"QCustomSlideMenu": [{
+		"name": "side_menu",
+		"defaultSize": [{
+			"width": 150,
+			"height": "auto"
+		}],
+		"collapsedSize": [{
+			"width": 0,
+			"height": "auto"
+		}],
+		"expandedSize": [{
+			"width": 150,
+			"height": "auto"
+		}],
+		"toggleButton": [{
+			"buttonName": "menubtn",
+			"icons": [{
+				"whenMenuIsCollapsed": "/home/lab/Documents/sonar-gui/icons/align-justify.svg",
+				"whenMenuIsExpanded": "/home/lab/Documents/sonar-gui/icons/chevron-left.svg"
+			}]
+		}],
+		"menuTransitionAnimation": [{
+			"animationDuration": 1000,
+			"animationEasingCurve": "OutInBack"
+		}]
+	}]
+}

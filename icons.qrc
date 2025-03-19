@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/chevron-left.svg</file>
+    <file>icons/align-justify.svg</file>
+    <file>icons/aperture.svg</file>
+    <file>icons/archive.svg</file>
+    <file>icons/chrome.svg</file>
+    <file>icons/paperclip.svg</file>
+  </qresource>
+</RCC>
