@@ -1,28 +1,36 @@
 {
 	"QCustomSlideMenu": [{
 		"name": "side_menu",
+		"floatPosition": [{
+				"relativeTo": "main_body",
+				"position": "top-left",
+				"shadow":[{
+					"color": "#000000",
+					"offset": {
+						"x": 0,
+						"y": 0
+					},
+					"blur": 20
+				}]
+		}],
 		"defaultSize": [{
 			"width": 150,
-			"height": "auto"
+			"height": "parent"
 		}],
 		"collapsedSize": [{
 			"width": 0,
-			"height": "auto"
+			"height": 0
 		}],
 		"expandedSize": [{
 			"width": 150,
-			"height": "auto"
+			"height": "parent"
 		}],
 		"toggleButton": [{
-			"buttonName": "menubtn",
-			"icons": [{
-				"whenMenuIsCollapsed": "/home/lab/Documents/sonar-gui/icons/align-justify.svg",
-				"whenMenuIsExpanded": "/home/lab/Documents/sonar-gui/icons/chevron-left.svg"
-			}]
+			"buttonName": "menubtn"
 		}],
 		"menuTransitionAnimation": [{
-			"animationDuration": 1000,
-			"animationEasingCurve": "OutInBack"
+			"duration": 1000,
+			"easing": "outBack"
 		}]
 	}]
 }

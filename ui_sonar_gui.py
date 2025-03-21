@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'sonar_guiEaNPNF.ui'
+## Form generated from reading UI file 'sonar_guibTkEDM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.3
 ##
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1059, 493)
+        MainWindow.resize(1112, 861)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"*{\n"
@@ -45,7 +45,7 @@ class Ui_MainWindow(object):
 "	border-radius: 10px;\n"
 "}\n"
 "#main_data, #main_data_sidebar{\n"
-"	background-color: #fff;\n"
+"	background-color:#fff;\n"
 "	border-radius: 5px;\n"
 "}")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -177,13 +177,13 @@ class Ui_MainWindow(object):
         self.frame_7.setObjectName(u"frame_7")
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
-        self.frame_8 = QFrame(self.frame_7)
-        self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setGeometry(QRect(0, 350, 575, 339))
-        self.frame_8.setFrameShape(QFrame.StyledPanel)
-        self.frame_8.setFrameShadow(QFrame.Raised)
 
         self.verticalLayout_4.addWidget(self.frame_7)
+
+        self.mapwidget = QWidget(self.main_data)
+        self.mapwidget.setObjectName(u"mapwidget")
+
+        self.verticalLayout_4.addWidget(self.mapwidget)
 
 
         self.horizontalLayout_5.addWidget(self.main_data)

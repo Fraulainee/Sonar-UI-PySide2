@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/settings.svg</file>
     <file>icons/chevron-left.svg</file>
     <file>icons/align-justify.svg</file>
     <file>icons/aperture.svg</file>

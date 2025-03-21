@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1059</width>
-    <height>493</height>
+    <width>1135</width>
+    <height>879</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,16 +32,26 @@ QPushButton{
 	padding: 10px;
 	background-color: #040f13;
 	border-radius: 5px;
-}
+} 
 #main_body{
 	/* background-color: #071e26; */
 	background-color:rgb(56,58,89);
 	border-radius: 10px;
 }
 #main_data, #main_data_sidebar{
-	background-color: #fff;
+	background-color:#fff;
 	border-radius: 5px;
-}</string>
+}
+
+#title_latitude, #title_longitude, #elevation, ssBtn {
+	background-color: #071e26; 
+   	border-radius: 10px;
+}
+
+#ssBtn:hover {
+    background-color: #3c3d5d;
+}
+</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -191,7 +201,7 @@ QPushButton{
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QWidget" name="side_menu" native="true">
+        <widget class="QCustomSlideMenu" name="side_menu" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <property name="spacing">
            <number>0</number>
@@ -206,7 +216,7 @@ QPushButton{
            <number>0</number>
           </property>
           <property name="bottomMargin">
-           <number>0</number>
+           <number>5</number>
           </property>
           <item alignment="Qt::AlignTop">
            <widget class="QFrame" name="frame_4">
@@ -271,6 +281,55 @@ QPushButton{
             </layout>
            </widget>
           </item>
+          <item alignment="Qt::AlignBottom">
+           <widget class="QFrame" name="frame_5">
+            <property name="styleSheet">
+             <string notr="true">#settingsBtn {
+	text-align: left;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>2</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="settingsBtn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Settings</string>
+               </property>
+               <property name="icon">
+                <iconset resource="icons.qrc">
+                 <normaloff>:/icons/icons/settings.svg</normaloff>:/icons/icons/settings.svg</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -294,30 +353,10 @@ QPushButton{
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
-               <widget class="QFrame" name="frame_7">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <widget class="QFrame" name="frame_8">
-                 <property name="geometry">
-                  <rect>
-                   <x>0</x>
-                   <y>350</y>
-                   <width>575</width>
-                   <height>339</height>
-                  </rect>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                </widget>
-               </widget>
+               <widget class="MatplotlibWidget" name="elevation_plot" native="true"/>
+              </item>
+              <item>
+               <widget class="QWidget" name="mapwidget" native="true"/>
               </item>
              </layout>
             </widget>
@@ -344,6 +383,129 @@ QPushButton{
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <item>
+               <widget class="QFrame" name="frame_10">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="elevation">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Elevation</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_4">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="title_latitude">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Latitude</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="title_longitude">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Longitude</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_5">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignBottom">
                <widget class="QFrame" name="frame_9">
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -351,16 +513,45 @@ QPushButton{
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="frame_10">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <property name="spacing">
+                  <number>10</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>10</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>10</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>10</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>10</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="ssBtn">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="text">
+                    <string>Saved Screenshot</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
@@ -377,6 +568,20 @@ QPushButton{
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomSlideMenu</class>
+   <extends>QWidget</extends>
+   <header>Custom_Widgets.Widgets.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MatplotlibWidget</class>
+   <extends>QWidget</extends>
+   <header>matplotlibwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="icons.qrc"/>
  </resources>
