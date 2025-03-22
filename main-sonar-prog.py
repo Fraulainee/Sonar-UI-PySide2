@@ -17,11 +17,11 @@ class MainWindow(QMainWindow):
         uic.loadUi('/home/lab/Documents/sonar-gui/sonar_gui.ui', self)
 
         self.webview = QWebEngineView()
-
         self.side_menu.setHidden(True)
 
         latitude, longitude = get_gps.read_gps_once()
         self.setup_map(latitude, longitude)
+        # self.setup_map(8.241513, 124.24399016666666)
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_map_with_gps)
@@ -30,14 +30,16 @@ class MainWindow(QMainWindow):
 
     def update_map_with_gps(self):
         latitude, longitude = get_gps.read_gps_once()
+        # latitude = 8.241513
+        # longitude = 124.24399016666666
         print(f"Latitude: {latitude}, Longitude: {longitude}")
+        self.latitude_label.setText(f"{latitude}")
+        self.longitude_label.setText(f"{longitude}")
 
         js = f"updateMarker({latitude}, {longitude});"
         self.webview.page().runJavaScript(js)
 
     def setup_map(self, latitude, longitude):
-        self.latitude_label.setText(f"{latitude}")
-        self.longitude_label.setText(f"{longitude}")
 
         map_html = f"""
         <!DOCTYPE html>
@@ -84,10 +86,6 @@ class MainWindow(QMainWindow):
             mapwidget.layout().addWidget(self.webview)
         else:
             print("Error: 'mapwidget' not found.")
-
-
-
-
 
 
 class SplashScreen(QMainWindow):

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Test Offline Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="map" style="width: 100%; height: 100vh;"></div>
+    <script>
+        var lat = 8.241513;
+        var lon = 124.243990;
+
+        var map = L.map('map').setView([lat, lon], 14);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Offline Tiles',
+            maxZoom: 14
+        }).addTo(map);
+
+        L.marker([lat, lon]).addTo(map)
+            .bindPopup("You are here")
+            .openPopup();
+    </script>
+</body>
+</html>
