@@ -18,7 +18,7 @@
     <string notr="true">*{
 	border: none;
 	background-color: transparent; 
-	color: #fff;
+	color: #fff; 
 }
 #centralwidget{
 	background-color: #040f13;
@@ -50,6 +50,10 @@ QPushButton{
 
 #ssBtn:hover {
     background-color: #3c3d5d;
+}
+
+#latitude_label, #longitude_label {
+	color: #21130d
 }
 </string>
    </property>
@@ -201,7 +205,7 @@ QPushButton{
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QCustomSlideMenu" name="side_menu" native="true">
+        <widget class="QWidget" name="side_menu" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <property name="spacing">
            <number>0</number>
@@ -353,7 +357,7 @@ QPushButton{
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
-               <widget class="MatplotlibWidget" name="elevation_plot" native="true"/>
+               <widget class="QWidget" name="elevation_plot" native="true"/>
               </item>
               <item>
                <widget class="QWidget" name="mapwidget" native="true"/>
@@ -461,9 +465,9 @@ QPushButton{
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="label_3">
+                  <widget class="QLabel" name="latitude_label">
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string/>
                    </property>
                   </widget>
                  </item>
@@ -496,9 +500,9 @@ QPushButton{
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="label_5">
+                  <widget class="QLabel" name="longitude_label">
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string/>
                    </property>
                   </widget>
                  </item>
@@ -568,20 +572,6 @@ QPushButton{
    </layout>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QCustomSlideMenu</class>
-   <extends>QWidget</extends>
-   <header>Custom_Widgets.Widgets.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>MatplotlibWidget</class>
-   <extends>QWidget</extends>
-   <header>matplotlibwidget.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="icons.qrc"/>
  </resources>
@@ -589,16 +579,16 @@ QPushButton{
   <connection>
    <sender>menubtn</sender>
    <signal>toggled(bool)</signal>
-   <receiver>frame_4</receiver>
-   <slot>setHidden(bool)</slot>
+   <receiver>side_menu</receiver>
+   <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>36</x>
-     <y>35</y>
+     <x>35</x>
+     <y>36</y>
     </hint>
     <hint type="destinationlabel">
-     <x>66</x>
-     <y>78</y>
+     <x>30</x>
+     <y>216</y>
     </hint>
    </hints>
   </connection>

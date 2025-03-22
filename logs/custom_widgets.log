@@ -6150,3 +6150,69 @@
 2025-03-21 16:09:10,712 - DEBUG - setting property frameShadow
 2025-03-21 16:09:10,712 - DEBUG - push QFrame main_data
 2025-03-21 16:09:10,712 - DEBUG - push QVBoxLayout verticalLayout_4
+2025-03-22 19:32:35,202 - DEBUG - push QCustomSlideMenu side_menu
+2025-03-22 19:32:35,202 - DEBUG - setting property spacing
+2025-03-22 19:32:35,202 - DEBUG - setting property leftMargin
+2025-03-22 19:32:35,202 - DEBUG - setting property topMargin
+2025-03-22 19:32:35,202 - DEBUG - setting property rightMargin
+2025-03-22 19:32:35,202 - DEBUG - setting property bottomMargin
+2025-03-22 19:32:35,202 - DEBUG - setting property pyuicMargins
+2025-03-22 19:32:35,202 - DEBUG - setting property pyuicSpacing
+2025-03-22 19:32:35,202 - DEBUG - push QVBoxLayout verticalLayout_2
+2025-03-22 19:32:35,203 - DEBUG - setting property minimumSize
+2025-03-22 19:32:35,203 - DEBUG - setting property maximumSize
+2025-03-22 19:32:35,203 - DEBUG - setting property styleSheet
+2025-03-22 19:32:35,203 - DEBUG - setting property frameShape
+2025-03-22 19:32:35,203 - DEBUG - setting property frameShadow
+2025-03-22 19:32:35,203 - DEBUG - push QFrame frame_4
+2025-03-22 19:32:35,203 - DEBUG - setting property leftMargin
+2025-03-22 19:32:35,203 - DEBUG - setting property topMargin
+2025-03-22 19:32:35,203 - DEBUG - setting property rightMargin
+2025-03-22 19:32:35,203 - DEBUG - setting property bottomMargin
+2025-03-22 19:32:35,203 - DEBUG - setting property pyuicMargins
+2025-03-22 19:32:35,203 - DEBUG - push QVBoxLayout verticalLayout_3
+2025-03-22 19:32:35,203 - DEBUG - setting property text
+2025-03-22 19:32:35,203 - DEBUG - setting property icon
+2025-03-22 19:32:35,203 - DEBUG - push QPushButton allBtn
+2025-03-22 19:32:35,203 - DEBUG - pop widget QPushButton allBtn
+2025-03-22 19:32:35,203 - DEBUG - new topwidget <PyQt5.QtWidgets.QFrame object at 0x7c1abec608b0>
+2025-03-22 19:32:35,203 - DEBUG - setting property text
+2025-03-22 19:32:35,203 - DEBUG - setting property icon
+2025-03-22 19:32:35,204 - DEBUG - push QPushButton savedImgBtn
+2025-03-22 19:32:35,204 - DEBUG - pop widget QPushButton savedImgBtn
+2025-03-22 19:32:35,204 - DEBUG - new topwidget <PyQt5.QtWidgets.QFrame object at 0x7c1abec608b0>
+2025-03-22 19:32:35,204 - DEBUG - pop layout QVBoxLayout verticalLayout_3
+2025-03-22 19:32:35,204 - DEBUG - pop widget QFrame frame_4
+2025-03-22 19:32:35,204 - DEBUG - new topwidget <Custom_Widgets.QCustomSlideMenu.QCustomSlideMenu object at 0x7c1abec60790>
+2025-03-22 19:32:35,204 - DEBUG - setting property styleSheet
+2025-03-22 19:32:35,204 - DEBUG - setting property frameShape
+2025-03-22 19:32:35,204 - DEBUG - setting property frameShadow
+2025-03-22 19:32:35,204 - DEBUG - push QFrame frame_5
+2025-03-22 19:32:35,204 - DEBUG - setting property spacing
+2025-03-22 19:32:35,204 - DEBUG - setting property leftMargin
+2025-03-22 19:32:35,204 - DEBUG - setting property topMargin
+2025-03-22 19:32:35,204 - DEBUG - setting property rightMargin
+2025-03-22 19:32:35,204 - DEBUG - setting property bottomMargin
+2025-03-22 19:32:35,204 - DEBUG - setting property pyuicMargins
+2025-03-22 19:32:35,204 - DEBUG - setting property pyuicSpacing
+2025-03-22 19:32:35,204 - DEBUG - push QVBoxLayout verticalLayout_7
+2025-03-22 19:32:35,204 - DEBUG - setting property sizePolicy
+2025-03-22 19:32:35,204 - DEBUG - setting property text
+2025-03-22 19:32:35,204 - DEBUG - setting property icon
+2025-03-22 19:32:35,204 - DEBUG - push QPushButton settingsBtn
+2025-03-22 19:32:35,204 - DEBUG - pop widget QPushButton settingsBtn
+2025-03-22 19:32:35,204 - DEBUG - new topwidget <PyQt5.QtWidgets.QFrame object at 0x7c1abec60c10>
+2025-03-22 19:32:35,204 - DEBUG - pop layout QVBoxLayout verticalLayout_7
+2025-03-22 19:32:35,204 - DEBUG - pop widget QFrame frame_5
+2025-03-22 19:32:35,204 - DEBUG - new topwidget <Custom_Widgets.QCustomSlideMenu.QCustomSlideMenu object at 0x7c1abec60790>
+2025-03-22 19:32:35,204 - DEBUG - pop layout QVBoxLayout verticalLayout_2
+2025-03-22 19:32:35,204 - DEBUG - pop widget QCustomSlideMenu side_menu
+2025-03-22 19:32:35,204 - DEBUG - new topwidget <PyQt5.QtWidgets.QFrame object at 0x7c1ac706c9d0>
+2025-03-22 19:32:35,205 - DEBUG - push QStackedWidget stackedWidget
+2025-03-22 19:32:35,205 - DEBUG - push QWidget main_body
+2025-03-22 19:32:35,205 - DEBUG - push QHBoxLayout horizontalLayout_5
+2025-03-22 19:32:35,205 - DEBUG - setting property sizePolicy
+2025-03-22 19:32:35,205 - DEBUG - setting property frameShape
+2025-03-22 19:32:35,205 - DEBUG - setting property frameShadow
+2025-03-22 19:32:35,205 - DEBUG - push QFrame main_data
+2025-03-22 19:32:35,205 - DEBUG - push QVBoxLayout verticalLayout_4

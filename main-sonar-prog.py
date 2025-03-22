@@ -1,5 +1,5 @@
-import sys, folium, io, os
-import resources_rc
+import sys, folium, io, os, time, tempfile
+import resources_rc, get_gps
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -7,7 +7,6 @@ from PyQt5.QtGui import *
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import QGraphicsDropShadowEffect  
 
-# os.environ["QTWEBENGINE_DISABLE_SANDBOX"] = "1"
 
 counter = 0
 
@@ -17,24 +16,65 @@ class MainWindow(QMainWindow):
 
         uic.loadUi('/home/lab/Documents/sonar-gui/sonar_gui.ui', self)
 
-        self.frame_4.setHidden(True)
-        
-        self.setup_map(37.7749, -122.4194)
+        self.webview = QWebEngineView()
 
-        
+        self.side_menu.setHidden(True)
 
+        latitude, longitude = get_gps.read_gps_once()
+        self.setup_map(latitude, longitude)
+
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_map_with_gps)
+        self.timer.start(10000)
+
+
+    def update_map_with_gps(self):
+        latitude, longitude = get_gps.read_gps_once()
+        print(f"Latitude: {latitude}, Longitude: {longitude}")
+
+        js = f"updateMarker({latitude}, {longitude});"
+        self.webview.page().runJavaScript(js)
 
     def setup_map(self, latitude, longitude):
-        map = folium.Map(location=[latitude, longitude], zoom_start=18, tiles="OpenStreetMap")
+        self.latitude_label.setText(f"{latitude}")
+        self.longitude_label.setText(f"{longitude}")
 
-        folium.Marker([latitude, longitude], popup=f"Lat: {latitude}, Lon: {longitude}").add_to(map)
+        map_html = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8" />
+            <title>Live Map</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="file:///home/lab/Documents/sonar-gui/assets/leaflet/leaflet.css"/>
+            <script src="file:///home/lab/Documents/sonar-gui/assets/leaflet/leaflet.js"></script>
+        </head>
+        <body>
+            <div id="map" style="width: 100%; height: 100vh;"></div>
+            <script>
+                var map = L.map('map').setView([{latitude}, {longitude}], 18);
+                L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+                    attribution: 'Map data © OpenStreetMap contributors'
+                }}).addTo(map);
 
-        data = io.BytesIO()
-        map.save(data, close_file=False)
+                var marker = L.marker([{latitude}, {longitude}]).addTo(map);
 
-        # Store WebView as an instance variable
-        self.webview = QWebEngineView()
-        self.webview.setHtml(data.getvalue().decode())
+                function updateMarker(lat, lon) {{
+                    marker.setLatLng([lat, lon]);
+                    map.panTo([lat, lon]);
+                }}
+            </script>
+        </body>
+        </html>
+        """
+
+        # Write HTML to a temporary file
+        with tempfile.NamedTemporaryFile('w', suffix='.html', delete=False) as f:
+            f.write(map_html)
+            temp_file_path = f.name
+
+        # Load it using setUrl instead of setHtml
+        self.webview.load(QUrl.fromLocalFile(temp_file_path))
 
         mapwidget = self.findChild(QWidget, "mapwidget")
         if mapwidget:
@@ -42,12 +82,14 @@ class MainWindow(QMainWindow):
                 layout = QVBoxLayout(mapwidget)
                 mapwidget.setLayout(layout)
             mapwidget.layout().addWidget(self.webview)
-            self.webview.show()
         else:
             print("Error: 'mapwidget' not found.")
 
 
-        
+
+
+
+
 class SplashScreen(QMainWindow):
     def __init__(self):
         super().__init__()  
