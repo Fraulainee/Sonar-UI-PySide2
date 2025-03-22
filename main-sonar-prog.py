@@ -18,6 +18,7 @@ class MainWindow(QMainWindow):
         uic.loadUi('/home/lab/Documents/sonar-gui/sonar_gui.ui', self)
 
         self.frame_4.setHidden(True)
+        
         self.setup_map(37.7749, -122.4194)
 
         

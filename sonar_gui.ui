@@ -43,7 +43,7 @@ QPushButton{
 	border-radius: 5px;
 }
 
-#title_latitude, #title_longitude, #elevation, ssBtn {
+#title_latitude, #title_longitude, #elevation {
 	background-color: #071e26; 
    	border-radius: 10px;
 }
